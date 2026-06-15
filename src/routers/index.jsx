@@ -4,20 +4,20 @@ import AuthLayout from "../layouts/AuthLayout";
 import MainParticipantLayout from "../layouts/MainParticipantLayout";
 import MainUserQuestionLayout from "../layouts/MainUserQuestionLayout";
 
-import { ParticipantLogin } from "../pages/Participant/ParticipantLogin";
-import { ParticipantRegister } from "../pages/Participant/ParticipantRegister";
-import { ParticipantHome } from "../pages/Participant/ParticipantHome";
+import ParticipantLogin from "../pages/Participant/ParticipantLogin";
+import ParticipantRegister from "../pages/Participant/ParticipantRegister";
+import ParticipantHome from "../pages/Participant/ParticipantHome";
 
-import { UserQuestionLogin } from "../pages/UserQuestion/UserQuestionLogin";
-import { UserQuestionRegister } from "../pages/UserQuestion/UserQuestionRegister";
-import { UserQuestionHome } from "../pages/UserQuestion/UserQuestionHome";
+import UserQuestionLogin from "../pages/UserQuestion/UserQuestionLogin";
+import UserQuestionRegister from "../pages/UserQuestion/UserQuestionRegister";
+import UserQuestionHome from "../pages/UserQuestion/UserQuestionHome";
 
 const router = createBrowserRouter([
     {
         element: <AuthLayout />,
         children: [
             {
-                path: "/participant/login",
+                path: "/login",
                 element: <ParticipantLogin />,
             },
             {
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
             {
                 path: "/user-question/register",
                 element: <UserQuestionRegister />,
-            }
+            },
         ],
     },
 
