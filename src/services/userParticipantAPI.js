@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const URL_PARTICIPANT = import.meta.env.VITE_USER_PARTICIPANT_API;
 
 const registerParticipant = async (payload) => {

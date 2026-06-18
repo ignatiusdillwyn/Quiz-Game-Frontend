@@ -38,20 +38,20 @@ const router = createBrowserRouter([
     {
         element: <MainParticipantLayout />,
         children: [
-            // {
-            //     path: "/participant/login",
-            //     element: <ParticipantLogin />,
-            // }
+            {
+                path: "/participant/home",
+                element: <ParticipantHome />,
+            }
         ]
     },
 
     {
         element: <MainUserQuestionLayout />,
         children: [
-            // {
-            //     path: "/user-question/login",
-            //     element: <UserQuestionLogin />,
-            // }
+            {
+                path: "/user-question/home",
+                element: <UserQuestionHome />,
+            }
         ]
     }
 ])
