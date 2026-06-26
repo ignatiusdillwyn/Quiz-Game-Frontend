@@ -35,7 +35,7 @@ const getListQuestionsbyCode = async (token, code) => {
 };
 
 //Ini untuk ambil semua code soal di db, nanti buat checking duplikasi code di frontend
-const getAllQuestionsPackageCode = async (token, code) => {
+const getAllQuestionsPackageCode = async (token) => {
     const response = await axios.get(`${URL_QUESTION}/getAllCode`, {
         headers: {
             'Content-Type': 'application/json',

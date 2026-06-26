@@ -17,16 +17,16 @@ const AuthLayout = () => {
           <div className="h-1.5 bg-gradient-to-r from-blue-400 to-purple-500"></div>
 
           <div className="p-8">
-            {/* Logo section - simplified */}
+            {/* Logo section */}
             <div className="text-center mb-8">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-2xl mb-4">
-                <span className="text-3xl">📝</span>
+                <span className="text-3xl">🧠</span>
               </div>
               <h1 className="text-2xl font-bold text-gray-800">
-                Quiz Game
+                Brain Battle
               </h1>
               <p className="text-gray-500 text-sm mt-1">
-                Test your knowledge
+                Challenge your mind
               </p>
             </div>
 

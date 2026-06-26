@@ -1,7 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
 import { FaBook, FaInfoCircle, FaPhoneAlt, FaSignInAlt } from "react-icons/fa";
 
-const NavbarUserQuestion = () => {
+const NavbarPartcipant = () => {
   const navClass = ({ isActive }) =>
     `flex items-center gap-2 px-3 py-2 rounded-lg transition
      ${
@@ -18,10 +18,10 @@ const NavbarUserQuestion = () => {
       </div>
 
       {/* CENTER - MENU */}
-      {/* <div className="flex gap-4 flex-1 justify-center">
-        <NavLink to="/books" className={navClass}>
+      <div className="flex gap-4 flex-1 justify-center">
+        <NavLink to="/user-question/home/list-questions" className={navClass}>
           <FaBook />
-          Books
+          Questions
         </NavLink>
 
         <NavLink to="/about" className={navClass}>
@@ -31,25 +31,25 @@ const NavbarUserQuestion = () => {
 
         <NavLink to="/contact" className={navClass}>
           <FaPhoneAlt />
-          Contact
+          Profile
         </NavLink>
-      </div> */}
+      </div>
 
-      {/* RIGHT - LOGIN */}
-      {/* <div className="flex-1 flex justify-end">
+      {/* RIGHT - LOGOUT */}
+      <div className="flex-1 flex justify-end">
         <NavLink
-          to="/login"
+          to="/user-question/login"
           className={({ isActive }) =>
             `flex items-center gap-2 px-4 py-2 rounded-lg transition
             ${isActive ? "bg-blue-600 text-white" : "border hover:bg-gray-100"}`
           }
         >
           <FaSignInAlt />
-          Login
+          Logout
         </NavLink>
-      </div> */}
+      </div>
     </nav>
   );
 };
 
-export default NavbarUserQuestion;
+export default NavbarPartcipant;

@@ -7,10 +7,12 @@ import MainUserQuestionLayout from "../layouts/MainUserQuestionLayout";
 import ParticipantLogin from "../pages/Participant/ParticipantLogin";
 import ParticipantRegister from "../pages/Participant/ParticipantRegister";
 import ParticipantHome from "../pages/Participant/ParticipantHome";
+import ListChallenges from "../pages/Participant/ListChallenges";
 
 import UserQuestionLogin from "../pages/UserQuestion/UserQuestionLogin";
 import UserQuestionRegister from "../pages/UserQuestion/UserQuestionRegister";
 import UserQuestionHome from "../pages/UserQuestion/UserQuestionHome";
+import ListQuestions from "../pages/UserQuestion/ListQuestions";
 
 const router = createBrowserRouter([
     {
@@ -51,7 +53,11 @@ const router = createBrowserRouter([
             {
                 path: "/user-question/home",
                 element: <UserQuestionHome />,
-            }
+            }, 
+            {
+                path: "/user-question/home/list-questions",
+                element: <ListQuestions />,
+            }, 
         ]
     }
 ])

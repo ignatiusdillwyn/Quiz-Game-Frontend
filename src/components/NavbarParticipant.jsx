@@ -18,10 +18,10 @@ const NavbarPartcipant = () => {
       </div>
 
       {/* CENTER - MENU */}
-      {/* <div className="flex gap-4 flex-1 justify-center">
+      <div className="flex gap-4 flex-1 justify-center">
         <NavLink to="/books" className={navClass}>
           <FaBook />
-          Books
+          Challenges
         </NavLink>
 
         <NavLink to="/about" className={navClass}>
@@ -31,23 +31,23 @@ const NavbarPartcipant = () => {
 
         <NavLink to="/contact" className={navClass}>
           <FaPhoneAlt />
-          Contact
+          Profile
         </NavLink>
-      </div> */}
+      </div>
 
-      {/* RIGHT - LOGIN */}
-      {/* <div className="flex-1 flex justify-end">
+      {/* RIGHT - LOGOUT */}
+      <div className="flex-1 flex justify-end">
         <NavLink
-          to="/login"
+          to="/participant/login"
           className={({ isActive }) =>
             `flex items-center gap-2 px-4 py-2 rounded-lg transition
             ${isActive ? "bg-blue-600 text-white" : "border hover:bg-gray-100"}`
           }
         >
           <FaSignInAlt />
-          Login
+          Logout
         </NavLink>
-      </div> */}
+      </div>
     </nav>
   );
 };
