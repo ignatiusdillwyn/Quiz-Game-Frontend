@@ -12,7 +12,8 @@ import ListChallenges from "../pages/Participant/ListChallenges";
 import UserQuestionLogin from "../pages/UserQuestion/UserQuestionLogin";
 import UserQuestionRegister from "../pages/UserQuestion/UserQuestionRegister";
 import UserQuestionHome from "../pages/UserQuestion/UserQuestionHome";
-import ListQuestions from "../pages/UserQuestion/ListQuestions";
+import ListPackageQuestions from "../pages/UserQuestion/ListPackageQuestions";
+import AddQuestionPackage from "../pages/UserQuestion/AddQuestionPackage";
 
 const router = createBrowserRouter([
     {
@@ -55,8 +56,12 @@ const router = createBrowserRouter([
                 element: <UserQuestionHome />,
             }, 
             {
-                path: "/user-question/home/list-questions",
-                element: <ListQuestions />,
+                path: "/user-question/home/list-package-questions",
+                element: <ListPackageQuestions />,
+            }, 
+            {
+                path: "/user-question/home/add-questions",
+                element: <AddQuestionPackage />,
             }, 
         ]
     }

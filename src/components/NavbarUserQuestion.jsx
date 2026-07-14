@@ -19,7 +19,7 @@ const NavbarPartcipant = () => {
 
       {/* CENTER - MENU */}
       <div className="flex gap-4 flex-1 justify-center">
-        <NavLink to="/user-question/home/list-questions" className={navClass}>
+        <NavLink to="/user-question/home/list-package-questions" className={navClass}>
           <FaBook />
           Questions
         </NavLink>

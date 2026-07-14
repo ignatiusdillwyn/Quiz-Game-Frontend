@@ -3,7 +3,7 @@ import { useNavigate, Link, useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { addQuestion, deleteQuestionBatch, deleteQuestionbyID, getAllQuestionPackagebyUserId, getAllQuestionsPackageCode, getListQuestionsbyCode, updateQuestion } from '../../services/questionAPI';
 
-const ListQuestions = () => {
+const ListPackageQuestions = () => {
     const navigate = useNavigate();
     const [listPackageQuestions, setListPackageQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -62,7 +62,7 @@ const ListQuestions = () => {
                     </p>
                 </div>
                 <button
-                    onClick={() => navigate('/user-question/create-package')}
+                    onClick={() => navigate('/user-question/home/add-questions')}
                     className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition duration-200 flex items-center gap-2"
                 >
                     <span>➕</span> Create New Package
@@ -150,4 +150,4 @@ const ListQuestions = () => {
     );
 };
 
-export default ListQuestions;
+export default ListPackageQuestions;
