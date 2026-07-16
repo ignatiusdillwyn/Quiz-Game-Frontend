@@ -250,7 +250,7 @@ const AddQuestionPackage = () => {
             <div className="mb-6">
                 <div className="flex items-center gap-2 mb-2">
                     <button
-                        onClick={() => navigate('/user-question/list-questions')}
+                        onClick={() => navigate('/user-question/home/list-package-questions')}
                         className="text-gray-500 hover:text-gray-700"
                     >
                         ← Back

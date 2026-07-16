@@ -14,6 +14,7 @@ import UserQuestionRegister from "../pages/UserQuestion/UserQuestionRegister";
 import UserQuestionHome from "../pages/UserQuestion/UserQuestionHome";
 import ListPackageQuestions from "../pages/UserQuestion/ListPackageQuestions";
 import AddQuestionPackage from "../pages/UserQuestion/AddQuestionPackage";
+import UpdateQuestionPackage from "../pages/UserQuestion/UpdateQuestionPackage";
 
 const router = createBrowserRouter([
     {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
             {
                 path: "/user-question/home/add-questions",
                 element: <AddQuestionPackage />,
+            }, 
+            {
+                path: "/user-question/home/update-questions/:code",
+                element: <UpdateQuestionPackage />,
             }, 
         ]
     }

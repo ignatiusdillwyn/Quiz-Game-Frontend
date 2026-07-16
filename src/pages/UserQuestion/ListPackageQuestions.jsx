@@ -8,6 +8,7 @@ const ListPackageQuestions = () => {
     const [listPackageQuestions, setListPackageQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
+    const [deleting, setDeleting] = useState(false);
 
     useEffect(() => {
         const fetchPackageCode = async () => {
@@ -34,6 +35,57 @@ const ListPackageQuestions = () => {
 
         fetchPackageCode();
     }, []);
+
+    // Handle delete package
+    const handleDeletePackage = async (code, e) => {
+        e.stopPropagation(); // Mencegah event bubbling ke card
+
+        // Konfirmasi sebelum delete
+        const confirm = await Swal.fire({
+            title: 'Delete Package?',
+            text: `Are you sure you want to delete package "${code}" and all its questions? This action cannot be undone!`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#7c3aed',
+            confirmButtonText: 'Yes, Delete!',
+            cancelButtonText: 'Cancel',
+        });
+
+        if (!confirm.isConfirmed) return;
+
+        try {
+            setDeleting(true);
+            const token = localStorage.getItem('token');
+            
+            // Panggil service delete dengan parameter code
+            const response = await deleteQuestionBatch(code, token);
+            console.log('Delete response:', response);
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Package Deleted! 🗑️',
+                text: `Package "${code}" has been deleted successfully`,
+                timer: 1500,
+                showConfirmButton: false,
+            });
+
+            // Refresh list setelah delete
+            const refreshResponse = await getAllQuestionsPackageCode(token);
+            setListPackageQuestions(refreshResponse.data || []);
+
+        } catch (error) {
+            console.error('Error deleting package:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Delete Failed',
+                text: error.response?.data?.message || 'Something went wrong. Please try again.',
+                confirmButtonColor: '#7c3aed',
+            });
+        } finally {
+            setDeleting(false);
+        }
+    };
 
     // Filter berdasarkan search (cari berdasarkan code)
     const filteredData = listPackageQuestions.filter(item =>
@@ -125,21 +177,22 @@ const ListPackageQuestions = () => {
                                 <button
                                     onClick={(e) => {
                                         e.stopPropagation();
-                                        navigate(`/user-question/questions/${item.code}`);
+                                        navigate(`/user-question/home/update-questions/${item.code}`);
                                     }}
                                     className="flex-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm hover:bg-blue-100 transition duration-200"
                                 >
                                     View Questions
                                 </button>
                                 <button
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        // Handle delete package
-                                        console.log('Delete package:', item.code);
-                                    }}
-                                    className="px-3 py-1.5 bg-red-50 text-red-600 rounded-lg text-sm hover:bg-red-100 transition duration-200"
+                                    onClick={(e) => handleDeletePackage(item.code, e)}
+                                    disabled={deleting}
+                                    className={`px-3 py-1.5 rounded-lg text-sm transition duration-200 ${
+                                        deleting 
+                                            ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                                            : 'bg-red-50 text-red-600 hover:bg-red-100'
+                                    }`}
                                 >
-                                    Delete
+                                    {deleting ? '...' : 'Delete'}
                                 </button>
                             </div>
                         </div>
